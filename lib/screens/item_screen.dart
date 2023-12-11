@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/widgets/myCard_Song.dart';
 
 class ItemScreen extends StatelessWidget {
-  ItemScreen();
-
-  MyCard_Song myCard = MyCard_Song(
+  final MyCard_Song myCard = MyCard_Song(
     titulo: 'Amor amarillo',
     artista: 'Gustavo Cerati',
     duracion: '2:30',

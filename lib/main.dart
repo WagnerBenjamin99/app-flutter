@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/preferences.dart';
-import 'package:flutter_repo_guide/screens/home_screen.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_repo_guide/screens/item_screen.dart';
 
 void main() async {
   // TODO: Comentar
@@ -10,7 +8,7 @@ void main() async {
   await Preferences.initShared();
 
   // runApp(const MyApp());
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
         routes: {
-          'home': (context) => const HomeScreen(),
+          'home': (context) => ItemScreen(),
         });
   }
 }

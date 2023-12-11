@@ -30,12 +30,10 @@ class MyCard_Song extends StatelessWidget {
           height: 50,
           fit: BoxFit.cover,
           errorBuilder: (context, error, stackTrace) {
-            // Manejar el error de carga de la imagen aquí
             return Container(
               width: 50,
               height: 50,
-              color: Colors
-                  .grey, // Puedes usar cualquier color o Widget de respaldo aquí
+              color: Colors.grey,
               child: Center(
                 child: Icon(Icons.error),
               ),
@@ -53,9 +51,7 @@ class MyCard_Song extends StatelessWidget {
         trailing: IconButton(
           icon: Icon(Icons.play_circle),
           color: Color.fromRGBO(44, 169, 25, 0.996),
-          onPressed: () {
-            // Aquí puedes manejar la lógica de reproducción
-          },
+          onPressed: () {},
         ),
       ),
     );
