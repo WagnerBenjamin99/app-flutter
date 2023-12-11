@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/preferences.dart';
+import 'package:flutter_repo_guide/screens/itemList_screen.dart';
 import 'package:flutter_repo_guide/screens/item_screen.dart';
 
 void main() async {
-  // TODO: Comentar
   WidgetsFlutterBinding.ensureInitialized();
   await Preferences.initShared();
 
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         initialRoute: 'home',
         routes: {
           'home': (context) => ItemScreen(),
+          'canciones': (context) => SongListScreen(),
         });
   }
 }
