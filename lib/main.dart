@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/preferences.dart';
+import 'package:flutter_repo_guide/screens/itemFilter_screen.dart';
 import 'package:flutter_repo_guide/screens/itemList_screen.dart';
 import 'package:flutter_repo_guide/screens/item_screen.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
         routes: {
-          'home': (context) => ItemScreen(),
+          'home': (context) => FilterScreen(),
           'canciones': (context) => SongListScreen(),
         });
   }

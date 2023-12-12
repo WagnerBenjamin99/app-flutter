@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repo_guide/screens/itemFilter_screen.dart';
 import 'package:flutter_repo_guide/screens/item_screen.dart';
+import 'package:flutter_repo_guide/widgets/customDrawe.dart';
 import 'package:flutter_repo_guide/widgets/myCard_Song.dart';
 
 class SongListScreen extends StatelessWidget {
@@ -32,8 +34,6 @@ class SongListScreen extends StatelessWidget {
       'imagenUrl':
           'https://images-na.ssl-images-amazon.com/images/I/71P8kbXVHJL._SL1500_.jpg',
     },
-
-    // Agrega más datos de canciones según sea necesario
   ];
 
   @override
@@ -43,54 +43,7 @@ class SongListScreen extends StatelessWidget {
           title: Text('Lista de Canciones'),
           backgroundColor: Color.fromRGBO(33, 134, 18, 0.992),
         ),
-        drawer: Drawer(
-          // Contenido del drawer (menú lateral)
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(33, 134, 18, 0.992),
-                ),
-                child: Text(
-                  'Menú',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-              ),
-              // Agrega más opciones de menú si es necesario
-              ListTile(
-                title: Text('Inicio '),
-                onTap: () {
-                  // Acción cuando se selecciona la opción 1
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text('Lista de canciones - Wagner'),
-                onTap: () {
-                  Navigator.pop(context); // Cierra el drawer antes de navegar
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SongListScreen()),
-                  );
-                },
-              ),
-              ListTile(
-                title: Text('Registro individual - Wagner'),
-                onTap: () {
-                  Navigator.pop(context); // Cierra el drawer antes de navegar
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ItemScreen()),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
+        drawer: CustomDrawer(),
         body: Center(
             child: Container(
           margin: EdgeInsets.symmetric(vertical: kToolbarHeight),
