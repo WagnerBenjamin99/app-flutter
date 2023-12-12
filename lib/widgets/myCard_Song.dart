@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyCard_Song extends StatelessWidget {
+class Card_albumes extends StatelessWidget {
   final String titulo;
   final String artista;
   final String duracion;

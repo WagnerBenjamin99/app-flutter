@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/preferences.dart';
 import 'package:flutter_repo_guide/screens/home_screen.dart';
 import 'package:flutter_repo_guide/screens/item_screen.dart';
+import 'package:flutter_repo_guide/screens/item_screen1.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
         routes: {
-          'home': (context) => ItemScreen(),
+          'home': (context) => SongListScreen(),
         });
   }
 }
