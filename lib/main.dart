@@ -11,7 +11,7 @@ void main() async {
   await Preferences.initShared();
 
   // runApp(const MyApp());
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
