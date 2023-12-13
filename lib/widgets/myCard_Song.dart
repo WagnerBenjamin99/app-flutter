@@ -29,6 +29,16 @@ class MyCard_Song extends StatelessWidget {
           width: 50,
           height: 50,
           fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            return Container(
+              width: 50,
+              height: 50,
+              color: Colors.grey,
+              child: Center(
+                child: Icon(Icons.error),
+              ),
+            );
+          },
         ),
         title: Text(
           titulo,
@@ -41,9 +51,7 @@ class MyCard_Song extends StatelessWidget {
         trailing: IconButton(
           icon: Icon(Icons.play_circle),
           color: Color.fromRGBO(44, 169, 25, 0.996),
-          onPressed: () {
-            // Aquí puedes manejar la lógica de reproducción
-          },
+          onPressed: () {},
         ),
       ),
     );

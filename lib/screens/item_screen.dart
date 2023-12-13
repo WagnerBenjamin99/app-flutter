@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repo_guide/screens/itemFilter_screen.dart';
+import 'package:flutter_repo_guide/screens/itemList_screen.dart';
+import 'package:flutter_repo_guide/widgets/customDrawe.dart';
 import 'package:flutter_repo_guide/widgets/myCard_Song.dart';
 
 class ItemScreen extends StatelessWidget {
-  ItemScreen();
-
-  MyCard_Song myCard = MyCard_Song(
+  final MyCard_Song myCard = MyCard_Song(
     titulo: 'Amor amarillo',
     artista: 'Gustavo Cerati',
     duracion: '2:30',
@@ -16,8 +17,10 @@ class ItemScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Amor amarillo'),
+        title: Text(myCard.titulo),
+        backgroundColor: Color.fromRGBO(33, 134, 18, 0.992),
       ),
+      drawer: CustomDrawer(),
       body: Center(
         child: myCard,
       ),

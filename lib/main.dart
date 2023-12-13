@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/preferences.dart';
 import 'package:flutter_repo_guide/screens/home_screen.dart';
+import 'package:flutter_repo_guide/screens/itemFilter_screen.dart';
+import 'package:flutter_repo_guide/screens/itemList_screen.dart';
 import 'package:flutter_repo_guide/screens/item_screen.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  // TODO: Comentar
   WidgetsFlutterBinding.ensureInitialized();
   await Preferences.initShared();
 
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'home',
         routes: {
-          'home': (context) => ItemScreen(),
+          'home': (context) => const HomeScreen(),
         });
   }
 }
