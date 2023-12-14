@@ -40,7 +40,7 @@ class SongListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Lista de Canciones'),
+          title: Text('Playlist Tracks'),
           backgroundColor: Color.fromRGBO(33, 134, 18, 0.992),
         ),
         drawer: CustomDrawer(),
