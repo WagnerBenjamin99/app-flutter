@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repo_guide/helpers/estilos.dart';
 import 'package:flutter_repo_guide/screens/itemFilter_screen.dart';
 import 'package:flutter_repo_guide/screens/itemList_screen.dart';
 import 'package:flutter_repo_guide/widgets/customDrawe.dart';
@@ -18,7 +19,7 @@ class ItemScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(myCard.titulo),
-        backgroundColor: Color.fromRGBO(33, 134, 18, 0.992),
+        backgroundColor: Estilos.greenOscuro,
       ),
       drawer: CustomDrawer(),
       body: Center(

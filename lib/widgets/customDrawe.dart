@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repo_guide/helpers/estilos.dart';
 import 'package:flutter_repo_guide/screens/albumesVistas/albums_azar_screen.dart';
 import 'package:flutter_repo_guide/screens/artista_top_screen.dart';
 import 'package:flutter_repo_guide/screens/itemFilter_screen.dart';
@@ -15,7 +16,7 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Color.fromRGBO(33, 134, 18, 0.992),
+              color: Estilos.greenOscuro,
             ),
             child: Text(
               'Menú',
