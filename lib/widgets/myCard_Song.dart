@@ -51,6 +51,7 @@ class MyCard_Song extends StatelessWidget {
         subtitle: Text('$artista - $duracion'),
         trailing: IconButton(
           icon: Icon(Icons.play_circle),
+          color: Color.fromRGBO(44, 169, 25, 0.996),
           color: Estilos.greenOscuro,
           onPressed: () {},
         ),

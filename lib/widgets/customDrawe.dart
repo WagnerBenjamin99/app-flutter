@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repo_guide/screens/albumes_tracks_screen.dart';
+import 'package:flutter_repo_guide/screens/home_screen.dart';
 import 'package:flutter_repo_guide/helpers/estilos.dart';
 import 'package:flutter_repo_guide/screens/albumesVistas/albums_azar_screen.dart';
 import 'package:flutter_repo_guide/screens/artista_top_screen.dart';
@@ -16,6 +18,7 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
+              color: Color.fromRGBO(33, 134, 18, 0.992),
               color: Estilos.greenOscuro,
             ),
             child: Text(
@@ -30,6 +33,10 @@ class CustomDrawer extends StatelessWidget {
             title: Text('Inicio'),
             onTap: () {
               Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
             },
           ),
           ListTile(
@@ -53,6 +60,7 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            title: Text('Filtro de Canciones - Wagner '),
             title: Text('Filtro de canciones - Wagner'),
             onTap: () {
               Navigator.pop(context); // Cierra el drawer antes de navegar
@@ -62,6 +70,8 @@ class CustomDrawer extends StatelessWidget {
               );
             },
           ),
+          ListTile(
+            title: Text('Albumes por Id del Artista - Caba'),
           //Diego Antonio Del Greco
           ListTile(
             title: const Text('5 Artistas Top'),
@@ -69,6 +79,12 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context); // Cierra el drawer antes de navegar
               Navigator.push(
                 context,
+                MaterialPageRoute(builder: (context) => AlbumesTracksScreen()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Cancionero del album - Caba'),
                 MaterialPageRoute(builder: (context) => const ArtistaTop()),
               );
             },
@@ -80,6 +96,8 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context); // Cierra el drawer antes de navegar
               Navigator.push(
                 context,
+
+                MaterialPageRoute(builder: (context) => AlbumesTracksScreen()),
                 MaterialPageRoute(builder: (context) => const AlbumsAzar()),
               );
             },
