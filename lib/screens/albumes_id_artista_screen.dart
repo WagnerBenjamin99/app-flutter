@@ -3,8 +3,6 @@ import 'package:flutter_repo_guide/widgets/Card_albumes.dart';
 import 'package:flutter_repo_guide/widgets/customDrawe.dart';
 
 class AlbumIdArtistaScreen extends StatelessWidget {
-  int _selectedIndex = 0;
-
   final List<Map<String, String>> albumes = [
     {
       'titulo': 'Tercer Arco',

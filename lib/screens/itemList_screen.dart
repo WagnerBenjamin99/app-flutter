@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/estilos.dart';
-import 'package:flutter_repo_guide/screens/itemFilter_screen.dart';
-import 'package:flutter_repo_guide/screens/item_screen.dart';
 import 'package:flutter_repo_guide/widgets/customDrawe.dart';
 import 'package:flutter_repo_guide/widgets/myCard_Song.dart';
 
