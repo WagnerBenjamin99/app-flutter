@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 SizedBox(height: 15),
                 Text(
-                  'INTEGRANTES : Antonio Del Greco Diego, Caba Emilce , Dupont Matias, Wagner Benjamin ',
+                  'INTEGRANTES : Antonio Del Greco Diego, Caba Emilce ,  Wagner Benjamin ',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
