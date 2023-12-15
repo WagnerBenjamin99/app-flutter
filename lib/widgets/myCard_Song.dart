@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_repo_guide/helpers/estilos.dart';
 
 class MyCard_Song extends StatelessWidget {
   final String titulo;
@@ -51,6 +52,7 @@ class MyCard_Song extends StatelessWidget {
         trailing: IconButton(
           icon: Icon(Icons.play_circle),
           color: Color.fromRGBO(44, 169, 25, 0.996),
+          color: Estilos.greenOscuro,
           onPressed: () {},
         ),
       ),
