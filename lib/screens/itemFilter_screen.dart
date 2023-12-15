@@ -89,7 +89,6 @@ class _FilterScreenState extends State<FilterScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Filtro Canciones'),
-        backgroundColor: Color.fromRGBO(33, 134, 18, 0.992),
         backgroundColor: Estilos.greenOscuro,
       ),
       drawer: CustomDrawer(),

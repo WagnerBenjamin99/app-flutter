@@ -19,9 +19,7 @@ class ItemScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(myCard.titulo),
-        backgroundColor: Color.fromRGBO(33, 134, 18, 0.992),
         backgroundColor: Estilos.greenOscuro,
-
       ),
       drawer: CustomDrawer(),
       body: Center(
