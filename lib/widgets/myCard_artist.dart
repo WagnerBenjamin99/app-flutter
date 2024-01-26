@@ -20,7 +20,6 @@ class MyCard_Artist extends StatelessWidget {
     return ConstrainedBox(
       constraints: BoxConstraints(
         maxWidth: 350,
-        maxHeight: 400,
       ),
       child: Card(
         elevation: 3,

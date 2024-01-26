@@ -1,41 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/estilos.dart';
-import 'package:flutter_repo_guide/screens/itemFilter_screen.dart';
-import 'package:flutter_repo_guide/screens/item_screen.dart';
 import 'package:flutter_repo_guide/widgets/customDrawe.dart';
+import 'dart:convert';
 import 'package:flutter_repo_guide/widgets/myCard_Song.dart';
 
-class SongListScreen extends StatelessWidget {
-  final List<Map<String, String>> songs = [
-    {
-      'titulo': 'Amor amarillo',
-      'artista': 'Gustavo Cerati',
-      'duracion': '2:30',
-      'imagenUrl':
-          'https://images-na.ssl-images-amazon.com/images/I/71P8kbXVHJL._SL1500_.jpg',
-    },
-    {
-      'titulo': 'Bocanada',
-      'artista': 'Gustavo Cerati',
-      'duracion': '3:10',
-      'imagenUrl':
-          'https://i.scdn.co/image/ab67616d0000b2731152471596980e1bba03b6ab',
-    },
-    {
-      'titulo': 'Lisa',
-      'artista': 'Gustavo Cerati',
-      'duracion': '4:30',
-      'imagenUrl':
-          'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7fddf627364375.5636404464236.jpeg',
-    },
-    {
-      'titulo': 'Puente',
-      'artista': 'Gustavo Cerati',
-      'duracion': '2:80',
-      'imagenUrl':
-          'https://images-na.ssl-images-amazon.com/images/I/71P8kbXVHJL._SL1500_.jpg',
-    },
-  ];
+import 'package:http/http.dart' as http;
+
+class SongListScreen extends StatefulWidget {
+  @override
+  _SongListScreenState createState() => _SongListScreenState();
+}
+
+class _SongListScreenState extends State<SongListScreen> {
+  List<Map<String, dynamic>> songs = [];
+  final playlistId = '0lJ7vyyEgbf3dym29kQVfk?si=1fea608ce77b4163';
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchPlaylistData();
+  }
+
+  Future<void> _fetchPlaylistData() async {
+    final response = await http
+        .get(Uri.parse('http://localhost:8000/api/v1/playlist/${playlistId}'));
+    print(response.statusCode);
+    print(response.body);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = json.decode(response.body);
+      final List<dynamic> items = data['items'];
+
+      setState(() {
+        songs = items.map((item) {
+          final track = item['track'];
+
+          return {
+            'titulo': track['name'],
+            'artista': track['artists'][0]['name'],
+            'duracion': (track['duration_ms'] / 1000).toString(),
+            'imagenUrl': track['album']['images'][0]['url'],
+          };
+        }).toList();
+      });
+    } else {
+      print('Error al cargar la lista de canciones');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
