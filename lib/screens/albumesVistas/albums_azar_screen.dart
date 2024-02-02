@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/estilos.dart';
 import 'package:flutter_repo_guide/screens/albumesVistas/lista_albumes_screen.dart';
+import 'package:flutter_repo_guide/widgets/customDrawe.dart';
 
 class AlbumsAzar extends StatefulWidget {
   const AlbumsAzar({Key? key}) : super(key: key);
@@ -44,6 +45,7 @@ class _AlbumsAzarState extends State<AlbumsAzar> {
         title: const Text('RECOMENDACIONES'),
         backgroundColor: Estilos.greenOscuro,
       ),
+      drawer: CustomDrawer(),
       backgroundColor: Estilos.greenClarito,
       body: Center(
         child: Column(

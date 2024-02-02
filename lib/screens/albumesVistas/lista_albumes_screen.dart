@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/estilos.dart';
+import 'package:flutter_repo_guide/widgets/customDrawe.dart';
 import 'package:flutter_repo_guide/widgets/custom_card.dart';
 
 class ListaAlbumes extends StatelessWidget {
@@ -75,6 +76,7 @@ class ListaAlbumes extends StatelessWidget {
         title: Text('$cantidad ALBUMES RECOMENDADOS'),
         backgroundColor: Estilos.greenOscuro,
       ),
+      drawer: CustomDrawer(),
       backgroundColor: Estilos.greenClarito,
       body: ListView(
         children: albumesWidgets,

@@ -4,13 +4,13 @@ import 'package:flutter_repo_guide/helpers/estilos.dart';
 class MyCard_Song extends StatelessWidget {
   final String titulo;
   final String artista;
-  final String duracion;
+  final String? duracion;
   final String imagenUrl;
 
   MyCard_Song({
     required this.titulo,
     required this.artista,
-    required this.duracion,
+    this.duracion,
     required this.imagenUrl,
   });
 
@@ -48,7 +48,7 @@ class MyCard_Song extends StatelessWidget {
             fontSize: 16,
           ),
         ),
-        subtitle: Text('$artista - $duracion'),
+        subtitle: duracion != null ? Text('$artista - $duracion') : null,
         trailing: IconButton(
           icon: Icon(Icons.play_circle),
           color: Estilos.greenOscuro,
