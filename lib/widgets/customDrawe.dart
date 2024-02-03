@@ -89,7 +89,7 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('Albumes al azar - Antonio Del Greco'),
+            title: const Text('Albumes al azar - Antonio Del Greco'),
             onTap: () {
               Navigator.pop(context); // Cierra el drawer antes de navegar
               Navigator.push(
@@ -99,7 +99,7 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('Artistas TOP - Antonio Del Greco'),
+            title: const Text('Artistas TOP - Antonio Del Greco'),
             onTap: () {
               Navigator.pop(context); // Cierra el drawer antes de navegar
               Navigator.push(

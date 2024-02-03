@@ -34,8 +34,7 @@ class CustomCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  nombre,
+                Text("Nombre: $nombre",
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
