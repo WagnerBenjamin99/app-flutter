@@ -4,6 +4,7 @@ import 'package:flutter_repo_guide/material.dart/barradenavegacion.dart';
 import 'package:flutter_repo_guide/widgets/customDrawe.dart';
 
 class HomeScreen extends StatefulWidget {
+  //home
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

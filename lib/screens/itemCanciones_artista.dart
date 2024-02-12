@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_repo_guide/helpers/estilos.dart';
+import 'package:flutter_repo_guide/widgets/card_songArtist.dart';
 import 'package:flutter_repo_guide/widgets/customDrawe.dart';
 import 'dart:convert';
-import 'package:flutter_repo_guide/widgets/myCard_Song.dart';
 
 import 'package:http/http.dart' as http;
 
-class SongListScreen extends StatefulWidget {
-  // lista de canciones de playlist
-  //Benja
+class CancionesArtista extends StatefulWidget {
+  // canciones del artista
   @override
-  _SongListScreenState createState() => _SongListScreenState();
+  _CancionesArtistaState createState() => _CancionesArtistaState();
 }
 
-class _SongListScreenState extends State<SongListScreen> {
+class _CancionesArtistaState extends State<CancionesArtista> {
   List<Map<String, dynamic>> songs = [];
-  final playlistId = '0lJ7vyyEgbf3dym29kQVfk?si=1fea608ce77b4163';
+  final artist_Id = '1QOmebWGB6FdFtW7Bo3F0W?si=2grpn-epQ6ewXJjA0KjkUg';
 
   @override
   void initState() {
@@ -24,8 +23,8 @@ class _SongListScreenState extends State<SongListScreen> {
   }
 
   Future<void> _fetchPlaylistData() async {
-    final response = await http
-        .get(Uri.parse('http://localhost:8000/api/v1/playlist/${playlistId}'));
+    final response = await http.get(Uri.parse(
+        'http://localhost:8000/api/v1/artist/${artist_Id}/canciones'));
     print(response.statusCode);
     print(response.body);
     if (response.statusCode == 200) {
@@ -53,7 +52,7 @@ class _SongListScreenState extends State<SongListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Lista de Canciones'),
+          title: Text('Lista de Canciones del Artista'),
           backgroundColor: Estilos.greenOscuro,
         ),
         drawer: CustomDrawer(),
@@ -65,7 +64,7 @@ class _SongListScreenState extends State<SongListScreen> {
             itemCount: songs.length,
             itemBuilder: (context, index) {
               final song = songs[index];
-              return MyCard_Song(
+              return CardSongArtist(
                 titulo: song['titulo']!,
                 artista: song['artista']!,
                 duracion: song['duracion']!,

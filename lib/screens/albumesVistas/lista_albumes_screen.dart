@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ListaAlbumes extends StatefulWidget {
+  //Diego
   final int cantidad;
 
   const ListaAlbumes({Key? key, required this.cantidad}) : super(key: key);
@@ -25,7 +26,8 @@ class _ListaAlbumesState extends State<ListaAlbumes> {
 
   Future<void> _fetchAlbumsAzarData() async {
     try {
-      final response = await http.get(Uri.parse('http://localhost:8000/api/v1/albums-actuales'));
+      final response = await http
+          .get(Uri.parse('http://localhost:8000/api/v1/albums-actuales'));
 
       if (response.statusCode == 200) {
         final List<dynamic> data = json.decode(response.body);
@@ -38,7 +40,7 @@ class _ListaAlbumesState extends State<ListaAlbumes> {
               'albumURL': album['images'][0]['url'],
             };
           }).toList();
-          
+
           // Mezcla aleatoriamente los álbumes
           albums.shuffle();
         });

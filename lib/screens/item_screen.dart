@@ -6,6 +6,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ItemScreen extends StatefulWidget {
+  //artista por id Benja
+
   @override
   _ItemScreenState createState() => _ItemScreenState();
 }
@@ -46,7 +48,7 @@ class _ItemScreenState extends State<ItemScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Artitsta'),
+        title: Text('Artista'),
         backgroundColor: Estilos.greenOscuro,
       ),
       drawer: CustomDrawer(),
