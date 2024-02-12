@@ -6,6 +6,8 @@ import 'package:flutter_repo_guide/widgets/custom_card.dart';
 import 'package:http/http.dart' as http;
 
 class ArtistaTop extends StatefulWidget {
+  //artistas del momento
+  //Diego
   const ArtistaTop({Key? key}) : super(key: key);
 
   @override
@@ -13,9 +15,9 @@ class ArtistaTop extends StatefulWidget {
 }
 
 class _ArtistaTopState extends State<ArtistaTop> {
-List<Map<String, dynamic>> artists = [];
+  List<Map<String, dynamic>> artists = [];
 
-@override
+  @override
   void initState() {
     super.initState();
     _fetchArtistsData();
@@ -32,7 +34,9 @@ List<Map<String, dynamic>> artists = [];
         artists = data.map((artist) {
           return {
             'nombre': artist['name'],
-            'genero': (artist['genres'].isNotEmpty) ? artist['genres'][0] : 'Sin genero',
+            'genero': (artist['genres'].isNotEmpty)
+                ? artist['genres'][0]
+                : 'Sin genero',
             'imagenUrl': artist['images'][0]['url'],
           };
         }).toList();

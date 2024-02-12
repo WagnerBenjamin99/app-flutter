@@ -1,47 +1,59 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_repo_guide/widgets/Card_albumes.dart';
-import 'package:flutter_repo_guide/widgets/customDrawe.dart';
+import 'package:flutter_repo_guide/helpers/estilos.dart';
+import 'package:flutter_repo_guide/widgets/card_albumtracks.dart';
+import 'package:http/http.dart' as http;
 
-class AlbumIdArtistaScreen extends StatelessWidget {
-  final List<Map<String, String>> albumes = [
-    {
-      'titulo': 'Tercer Arco',
-      'artista': 'Los Piojos',
-      'anio': '1998',
-      'imagenUrl':
-          'https://akamai.sscdn.co/letras/360x360/albuns/8/8/4/b/639591529678955.jpg',
-    },
-    {
-      'titulo': 'Azul',
-      'artista': 'Los Piojos',
-      'anio': '1998',
-      'imagenUrl':
-          'https://akamai.sscdn.co/letras/360x360/albuns/8/1/6/6/641231530022824.jpg',
-    },
-    {
-      'titulo': 'Verde Paisaje Del Infierno',
-      'artista': 'Los Piojos',
-      'anio': '2000',
-      'imagenUrl':
-          'https://akamai.sscdn.co/uploadfile/letras/albuns/1/4/d/1/641221530022803.jpg',
-    },
-    {
-      'titulo': 'Civilizacion',
-      'artista': 'Los Piojos',
-      'anio': '2007',
-      'imagenUrl':
-          'https://akamai.sscdn.co/uploadfile/letras/albuns/8/6/4/8/641201530022754.jpg',
-    },
-  ];
+class AlbumIdArtistaScreen extends StatefulWidget {
+  @override
+  _AlbumIdArtistaScreenState createState() => _AlbumIdArtistaScreenState();
+}
+
+class _AlbumIdArtistaScreenState extends State<AlbumIdArtistaScreen> {
+  List<Map<String, dynamic>> albumes = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchAlbumes();
+  }
+
+  Future<void> _fetchAlbumes() async {
+    const artistId = '4IjHltwoSKbUeZLPeULyDe';
+
+    try {
+      final response = await http.get(
+          Uri.parse('http://localhost:8000/api/v1/artistas/$artistId/albums'));
+      if (response.statusCode == 200) {
+        final List<dynamic> data = json.decode(response.body)['items'];
+
+        setState(() {
+          albumes = data.map((item) {
+            return {
+              'titulo': item['name'],
+              'artista': item['artists'][0]
+                  ['name'], // Corregir la clave de 'album'
+              // 'duracion': (item['duration_ms'] / 1000)
+              //     .toString(), // Asumiendo que la duración está disponible
+              'imagenUrl': item['images'][0]['url'],
+            };
+          }).toList();
+        });
+      } else {
+        print('Error al obtener los datos: ${response.statusCode}');
+      }
+    } catch (error) {
+      print('Error al realizar la solicitud HTTP: $error');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Albumes por Id Artista'),
-        backgroundColor: const Color.fromRGBO(33, 134, 18, 0.992),
+        backgroundColor: Estilos.greenOscuro,
       ),
-      drawer: CustomDrawer(),
       body: Center(
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: kToolbarHeight),
@@ -50,11 +62,9 @@ class AlbumIdArtistaScreen extends StatelessWidget {
             itemCount: albumes.length,
             itemBuilder: (context, index) {
               final album = albumes[index];
-
-              return CardAlbumes(
+              return CardAlbumTracks(
                 titulo: album['titulo']!,
-                artista: album['artista']!,
-                anio: album['anio']!,
+                artista: album['artista']!, // Cambiar 'artista' por 'album'
                 imagenUrl: album['imagenUrl']!,
               );
             },

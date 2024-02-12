@@ -3,74 +3,63 @@ import 'package:flutter/material.dart';
 class CardAlbumes extends StatelessWidget {
   final String titulo;
   final String artista;
-  final String anio;
-  final String imagenUrl;
 
-  CardAlbumes({
+  const CardAlbumes({
+    super.key,
     required this.titulo,
     required this.artista,
-    required this.anio,
-    required this.imagenUrl,
   });
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: MediaQuery.of(context).size.width * 0.8,
         child: Card(
           elevation: 4,
-          margin: EdgeInsets.all(9),
+          margin: const EdgeInsets.all(9),
+          color: Colors.amber,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
-            side: BorderSide(color: Colors.grey),
+            side: const BorderSide(color: Colors.grey),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              ClipRRect(
+              const ClipRRect(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(35),
                     topRight: Radius.circular(35),
                     bottomLeft: Radius.circular(35),
                     bottomRight: Radius.circular(35)),
-                child: Image.network(
-                  imagenUrl,
-                  height: 250,
-                  width: 500,
-                  fit: BoxFit.cover,
-                ),
               ),
               Padding(
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
                       titulo,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       artista,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.grey,
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      anio,
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                    SizedBox(height: 8),
+
+                    const SizedBox(height: 8),
+                    // Botón de reproducción
                     ElevatedButton(
                       onPressed: () {
-                        //  Acceder al album
+                        // Lógica para reproducir la canción
                       },
-                      child: Text('Ir al Album'),
+                      style: ElevatedButton.styleFrom(primary: Colors.blue),
+                      child: const Text('Reproducir'),
                     ),
                   ],
                 ),
