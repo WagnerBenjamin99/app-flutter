@@ -17,6 +17,7 @@ class CardAlbumes extends StatelessWidget {
         child: Card(
           elevation: 4,
           margin: const EdgeInsets.all(9),
+          color: Colors.amber,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
             side: const BorderSide(color: Colors.grey),
@@ -50,7 +51,16 @@ class CardAlbumes extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
+
                     const SizedBox(height: 8),
+                    // Botón de reproducción
+                    ElevatedButton(
+                      onPressed: () {
+                        // Lógica para reproducir la canción
+                      },
+                      style: ElevatedButton.styleFrom(primary: Colors.blue),
+                      child: const Text('Reproducir'),
+                    ),
                   ],
                 ),
               ),
